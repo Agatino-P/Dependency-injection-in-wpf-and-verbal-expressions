@@ -6,6 +6,9 @@
         xmlns:local="clr-namespace:VeUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <d:Window.DataContext>
+        <local:MainWindowViewModel></local:MainWindowViewModel>
+    </d:Window.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

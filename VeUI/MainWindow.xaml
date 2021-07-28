@@ -1,0 +1,30 @@
+﻿<Window x:Class="VeUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:VeUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Regex" Grid.Column="0" Grid.Row="0"/>
+        <TextBox Text="{Binding  RegEx}" Grid.Column="1" Grid.Row="0"/>
+        
+        <TextBlock Text="Input String" Grid.Column="0" Grid.Row="1"/>
+        <TextBox Text="{Binding  InputString}" Grid.Column="1" Grid.Row="1"/>
+
+        <Button Command="{Binding ProcessCmd}" Content="Process" Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2"/>
+        <TextBlock Text="Outcome" Grid.Column="0" Grid.Row="3"/>
+        <TextBlock Text="{Binding  Outcome, Mode=OneWay}" Grid.Column="1" Grid.Row="3"/>
+    </Grid>
+</Window>

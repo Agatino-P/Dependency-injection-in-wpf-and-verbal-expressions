@@ -1,6 +1,8 @@
-﻿using GalaSoft.MvvmLight;
+﻿using CSharpVerbalExpressions;
+using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
 using MediatR;
+using System.Text.RegularExpressions;
 using VeLib.Queries;
 
 namespace VeUI
@@ -34,8 +36,23 @@ namespace VeUI
 
         private void process()
         {
+            var verExp = new VerbalExpressions()
+                .StartOfLine().
+                BeginCapture("lowercase")
+                .Range("a", "z").EndCapture();
 
-            Outcome = _mediator.Send(new ProcessRegExQuery(RegEx, InputString)).Result;
+            Regex stdRegEx = verExp.ToRegex();
+            RegEx = stdRegEx.ToString();
+
+            Match mc =stdRegEx.Match(this.InputString);
+            //var t = mc.To  stdRegEx.Matches.FirstOrDefault(["lowercase"];
+
+            var pippo = verExp.IsMatch(InputString);
+            
+
+
+
+            Outcome = _mediator.Send(new ProcessRegExQuery(verExp, InputString)).Result;
         }
     }
 }

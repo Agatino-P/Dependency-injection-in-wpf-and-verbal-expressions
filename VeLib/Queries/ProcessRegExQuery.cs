@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using CSharpVerbalExpressions;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,5 +8,5 @@ using System.Threading.Tasks;
 
 namespace VeLib.Queries
 {
-    public record ProcessRegExQuery(string RegEx, string Input): IRequest<string>();
+    public record ProcessRegExQuery(VerbalExpressions VerbExpr, string Input): IRequest<string>();
 }

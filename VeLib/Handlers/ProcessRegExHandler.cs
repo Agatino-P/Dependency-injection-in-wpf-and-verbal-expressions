@@ -13,7 +13,9 @@ namespace VeLib.Handlers
     {
         public Task<string> Handle(ProcessRegExQuery request, CancellationToken cancellationToken)
         {
-            return Task.FromResult($"TBD - {request.RegEx} {request.Input}");
+            return Task.FromResult(
+                request.VerbExpr.Test(request.Input) ? "Matched":"Not Matched" 
+                );
         }
     }
 }
